@@ -18,4 +18,19 @@ class PostsController < ApplicationController
 	  @post.save
 	  redirect_to post_path(@post)
 	end
+
+	def edit
+		 @post = Post.find(params[:id])
+	end
+
+	def update
+		@post = Post.find(params[:id])
+		@post.update(title: params[:title], description: params[:description])
+		redirect_to post_path(@post)
+	end
+
+	# def post_params
+	# 	 params.require(:post).permit(:title, :description)
+	#  end
+
 end
