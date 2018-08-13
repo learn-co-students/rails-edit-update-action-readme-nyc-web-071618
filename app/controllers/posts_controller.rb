@@ -18,4 +18,15 @@ class PostsController < ApplicationController
 	  @post.save
 	  redirect_to post_path(@post)
 	end
+
+	#`edit` action stores the `post` record in an instance variable
+	def edit
+		@post = Post.find(params[:id])
+	end
+
+	def update
+	  @post = Post.find(params[:id])
+	  @post.update(title: params[:title], description: params[:description])
+	  redirect_to post_path(@post)
+	end
 end
