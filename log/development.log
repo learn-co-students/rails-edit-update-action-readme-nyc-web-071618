@@ -421,3 +421,176 @@ Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-12-31 14:38:13 -0600
+
+
+Started GET "/posts" for ::1 at 2018-08-15 09:51:16 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 682ms (Views: 666.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for ::1 at 2018-08-15 09:51:24 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 126ms (Views: 124.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/edit" for ::1 at 2018-08-15 10:02:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 34ms (ActiveRecord: 0.7ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=edit):
+  app/controllers/posts_controller.rb:7:in `show'
+
+
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.6ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (116.7ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2018-08-15 10:02:28 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendered posts/edit.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 341ms (Views: 340.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2018-08-15 10:08:49 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.6ms)
+
+SyntaxError (/Users/godzillaisbig/Development/Rails/rails-edit-update-action-readme-nyc-web-071618/app/views/posts/edit.html.erb:1: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+..._tag post_path(@post), method "put" do @output_buffer.safe_a...
+...                               ^
+/Users/godzillaisbig/Development/Rails/rails-edit-update-action-readme-nyc-web-071618/app/views/posts/edit.html.erb:1: syntax error, unexpected keyword_do_block, expecting keyword_end
+...st_path(@post), method "put" do @output_buffer.safe_append='
+...                               ^
+/Users/godzillaisbig/Development/Rails/rails-edit-update-action-readme-nyc-web-071618/app/views/posts/edit.html.erb:11: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/posts/edit.html.erb:1: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/views/posts/edit.html.erb:1: syntax error, unexpected keyword_do_block, expecting keyword_end
+  app/views/posts/edit.html.erb:11: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (107.7ms)
+
+
+Started GET "/post/1/edit" for ::1 at 2018-08-15 10:08:58 -0400
+
+ActionController::RoutingError (No route matches [GET] "/post/1/edit"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.10) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.10) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.10) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  rack (1.6.10) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.10) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/godzillaisbig/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/godzillaisbig/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/godzillaisbig/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (20.0ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (192.6ms)
+
+
+Started GET "/posts/2/edit" for ::1 at 2018-08-15 10:09:05 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered posts/edit.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms)
+
+SyntaxError (/Users/godzillaisbig/Development/Rails/rails-edit-update-action-readme-nyc-web-071618/app/views/posts/edit.html.erb:1: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+..._tag post_path(@post), method "put" do @output_buffer.safe_a...
+...                               ^
+/Users/godzillaisbig/Development/Rails/rails-edit-update-action-readme-nyc-web-071618/app/views/posts/edit.html.erb:1: syntax error, unexpected keyword_do_block, expecting keyword_end
+...st_path(@post), method "put" do @output_buffer.safe_append='
+...                               ^
+/Users/godzillaisbig/Development/Rails/rails-edit-update-action-readme-nyc-web-071618/app/views/posts/edit.html.erb:11: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/posts/edit.html.erb:1: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/views/posts/edit.html.erb:1: syntax error, unexpected keyword_do_block, expecting keyword_end
+  app/views/posts/edit.html.erb:11: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.4ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (107.4ms)
+
+
+Started GET "/posts/2/edit" for ::1 at 2018-08-15 10:10:16 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 77ms (Views: 76.0ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/posts/2" for ::1 at 2018-08-15 10:10:39 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E63W/7RzfxMTYlJJ7AuajZUvzabDU4cU7Dt/6yAONWQ4+EHU/t7twvgH3BkYrQMCZX/Ev2cKiaPZgPSGt+zHcQ==", "title"=>"Rails Introduction bbb", "description"=>"asdfasdf", "commit"=>"Submit Post", "id"=>"2"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError ({"utf8"=>"✓", "_method"=>"put", "authenticity_token"=>"E63W/7RzfxMTYlJJ7AuajZUvzabDU4cU7Dt/6yAONWQ4+EHU/t7twvgH3BkYrQMCZX/Ev2cKiaPZgPSGt+zHcQ==", "title"=>"Rails Introduction bbb", "description"=>"asdfasdf", "commit"=>"Submit Post", "controller"=>"posts", "action"=>"update", "id"=>"2"}):
+  app/controllers/posts_controller.rb:27:in `update'
+
+
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/godzillaisbig/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (104.3ms)
+
+
+Started GET "/posts/2/edit" for ::1 at 2018-08-15 10:14:19 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered posts/edit.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 125ms (Views: 119.3ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/posts/2" for ::1 at 2018-08-15 10:14:25 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xpEIkrbyfcQrO1Sqkh6tXEG82cGjmrOovQC6C54V2PftxJ+5/F/vFcBe2vpmuDTTsezQ2AfDvR+IuzFmCfcq4g==", "title"=>"Rails Introduction bbc", "description"=>"asdfasdfffff", "commit"=>"Submit Post", "id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "Rails Introduction bbc"], ["description", "asdfasdfffff"], ["updated_at", "2018-08-15 14:14:25.090650"], ["id", 2]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 44ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/posts/2" for ::1 at 2018-08-15 10:14:25 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.1ms)
